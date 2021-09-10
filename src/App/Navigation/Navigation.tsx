@@ -13,7 +13,7 @@ class Navigation extends React.Component<any, any>{
 
     render() {
         return (
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <div>
                     <nav>
                         <ul>
