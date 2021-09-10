@@ -1,0 +1,71 @@
+@import "variables.scss";
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+html,body{
+  width: 100%;
+  height: 100%;
+}
+
+img{
+  max-width: 100%;
+}
+
+// Typography
+
+body{
+  background-color: $primary-color;
+  font-family: $primary-font;
+  color: $secondary-font-color;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: $secondary-font;
+  text-transform: uppercase;
+  margin: 2px 0;
+}
+
+h1{
+  font-size: 4rem;
+}
+
+h2{
+  font-size: 3rem;
+}
+
+h3{
+  font-size: 2rem;
+}
+
+h4{
+  font-size: 2rem;
+}
+
+h5{
+  font-size: 1.5rem;
+}
+
+h6{
+  font-size: 1rem;
+}
+ul{
+  list-style: none;
+}
+
+input, textarea{
+  padding: 0 15px;
+}
+input,textarea, p, i, span{
+  border:none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: $primary-font;
+  font-size:1rem;
+}
+
+.fa, .fas{
+  font-size:1rem;
+}
