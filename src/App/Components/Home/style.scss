@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import "../../../Theme/variables.scss";
+
+header{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: calc(100vh - 100px);
+  padding: 0 130px;
+
+  & h1{
+    margin-bottom: 40px;
+    font-family: $secondary-font;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 64px;
+  }
+
+  & p {
+    font-family: $secondary-font;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 40px;
+  }
+
+  & a {
+    text-decoration: none;
+    color: $secondary-font-color;
+    text-align: center;
+    background: $secondary-color;
+    border-radius: 13px;
+    padding: 20px 120px;
+    box-sizing: border-box;
+    border: 1px solid $primary-color;
+    transition: 0.3s;
+
+    &:hover{
+      border: 1px solid #A9FAFF;
+    }
+  }
+}
+
+
+section#team{
+  height: 100vh;
+
+}

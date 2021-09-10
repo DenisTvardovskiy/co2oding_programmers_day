@@ -1,105 +1,30 @@
 import React from "react";
-import { Table } from 'antd';
-import { Bar, Histogram } from '@ant-design/charts';
-import BarChart from "../BarChart/BarChart";
-import HistogramChart from "../HistogramChart/HistogramChart";
-import LineChart from "../LineChart/LineChart";
-import PieChart from "../PieChart/PieChart";
-
-interface dataObj {
-    key: string,
-    name: string,
-    chinese: number,
-    math: number,
-    english: number,
-}
-
-const columns = [
-    {
-        title: 'Name',
-        dataIndex: 'name',
-    },
-    {
-        title: 'Chinese Score',
-        dataIndex: 'chinese',
-        sorter: {
-            compare: (a:dataObj, b:dataObj) => a.chinese - b.chinese,
-            multiple: 3,
-        },
-    },
-    {
-        title: 'Math Score',
-        dataIndex: 'math',
-        sorter: {
-            compare: (a:dataObj, b:dataObj) => a.math - b.math,
-            multiple: 2,
-        },
-    },
-    {
-        title: 'English Score',
-        dataIndex: 'english',
-        sorter: {
-            compare: (a:dataObj, b:dataObj) => a.english - b.english,
-            multiple: 1,
-        },
-    },
-];
-
-const data:any = [
-    {
-        key: '1',
-        name: 'John Brown',
-        chinese: 98,
-        math: 60,
-        english: 70,
-    },
-    {
-        key: '2',
-        name: 'Jim Green',
-        chinese: 98,
-        math: 66,
-        english: 89,
-    },
-    {
-        key: '3',
-        name: 'Joe Black',
-        chinese: 98,
-        math: 90,
-        english: 70,
-    },
-    {
-        key: '4',
-        name: 'Jim Red',
-        chinese: 88,
-        math: 99,
-        english: 89,
-    },
-    {
-        key: '5',
-        name: 'Jim Red',
-        chinese: 88,
-        math: 99,
-        english: 89,
-    },
-];
-
-
-
+import "./style.scss"
 
 class Home extends React.Component<any, any>{
-    onChange(pagination?:any, filters?:any, sorter?:any, extra?:any) {
-        console.log('params', pagination, filters, sorter, extra);
-    }
 
     render() {
         return (
-            <div>
-                <Table columns={columns} dataSource={data} onChange={this.onChange} />
-                <BarChart/>
-                <HistogramChart/>
-                <LineChart/>
-                <PieChart/>
-            </div>
+            <>
+                <header>
+                    <img src={"./assets/header-img.svg"} alt={"header-img"}/>
+                    <div>
+                        <h1>Завдання</h1>
+                        <p>Створити  інтерактивний  веб  застосунок  для  візуалізації  та  поліпшення  аналізу
+                            викидів парникових газів.<br/> <br/>Що буде включати головну та набір спеціалізованих сторінок.
+                            Які повинні презентувати надані нижче данні викидів у формі діаграм. <br/><br/>Поведінка котрих
+                            має  включати  елементи  інтерактивності,  за  допомогою  яких  можна  змінювати
+                            відображення  статистики  по  викидах  за  регіонами,  роками,  а  також  кількості  зелених
+                            насаджень,  щоб  нівелювати  задану  шкоду  атмосфері.  <br/><br/>Фільтрація  та
+                            сортування даних буде плюсом.  Данні  для  діаграм  повинні  надходити  з  серверної
+                            частини застосунку, реалізованої як REST за наданою нижче специфікацією.</p>
+                        <a href={"#team"}>Про команду</a>
+                    </div>
+                </header>
+                <section id="team">
+
+                </section>
+            </>
         );
     }
 }

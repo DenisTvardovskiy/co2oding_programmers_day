@@ -55,17 +55,6 @@ ul{
   list-style: none;
 }
 
-input, textarea{
-  padding: 0 15px;
-}
-input,textarea, p, i, span{
-  border:none;
-  outline: none;
-  box-sizing: border-box;
-  font-family: $primary-font;
-  font-size:1rem;
-}
-
 .fa, .fas{
   font-size:1rem;
 }
