@@ -23,9 +23,6 @@ class Navigation extends React.Component<any, any>{
                             <li>
                                 <Link to="/distribution">Distribution</Link>
                             </li>
-                            <li>
-                                <Link to="/summary">Summary</Link>
-                            </li>
                         </ul>
                     </nav>
                     <Switch>
