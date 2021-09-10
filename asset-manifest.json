@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/DenisTvardovskiy/co2oding_programmers_day/static/css/main.3a19c0e7.chunk.css",
+    "main.js": "/DenisTvardovskiy/co2oding_programmers_day/static/js/main.779a9d2f.chunk.js",
+    "main.js.map": "/DenisTvardovskiy/co2oding_programmers_day/static/js/main.779a9d2f.chunk.js.map",
+    "runtime-main.js": "/DenisTvardovskiy/co2oding_programmers_day/static/js/runtime-main.61f80f2b.js",
+    "runtime-main.js.map": "/DenisTvardovskiy/co2oding_programmers_day/static/js/runtime-main.61f80f2b.js.map",
+    "static/js/2.a2170100.chunk.js": "/DenisTvardovskiy/co2oding_programmers_day/static/js/2.a2170100.chunk.js",
+    "static/js/2.a2170100.chunk.js.map": "/DenisTvardovskiy/co2oding_programmers_day/static/js/2.a2170100.chunk.js.map",
+    "index.html": "/DenisTvardovskiy/co2oding_programmers_day/index.html",
+    "static/css/main.3a19c0e7.chunk.css.map": "/DenisTvardovskiy/co2oding_programmers_day/static/css/main.3a19c0e7.chunk.css.map",
+    "static/js/2.a2170100.chunk.js.LICENSE.txt": "/DenisTvardovskiy/co2oding_programmers_day/static/js/2.a2170100.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.61f80f2b.js",
+    "static/js/2.a2170100.chunk.js",
+    "static/css/main.3a19c0e7.chunk.css",
+    "static/js/main.779a9d2f.chunk.js"
+  ]
+}
