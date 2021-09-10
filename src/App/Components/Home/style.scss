@@ -74,3 +74,11 @@ section#team{
     height: 700px;
   }
 }
+
+.line-text{
+  position: absolute;
+  transform: rotate(-90deg);
+  bottom: 150px;
+  left: 0;
+  color: rgba(255, 255, 255, 0.4);
+}

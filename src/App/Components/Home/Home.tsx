@@ -7,6 +7,7 @@ class Home extends React.Component<any, any>{
         return (
             <>
                 <header>
+                    <span className={"line-text"}>Programmers’ Day CO2ding</span>
                     <img src={"./assets/header-img.svg"} alt={"header-img"}/>
                     <div>
                         <h1>Завдання</h1>

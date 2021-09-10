@@ -1,15 +1,10 @@
-import {Button, Form, FormInstance, Radio, Select } from "antd";
+import {Button } from "antd";
 import React from "react";
 import {Line} from "@ant-design/charts";
-const { Option } = Select;
+import "./style.scss"
+
+
 const API_LINK = 'https://co2ding-2021.herokuapp.com/api/v1/'
-
-const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-};
-
-
 
 class Distribution extends React.Component<any, any>{
     config = {
@@ -17,10 +12,12 @@ class Distribution extends React.Component<any, any>{
         xField: 'dateStart',
         yField: 'value',
         label: {},
+        color: '#fff',
         point: {
             size: 5,
-            shape: 'diamond',
+            shape: 'circle',
             style: {
+                shadowBlur: 4,
                 fill: 'white',
                 stroke: '#5B8FF9',
                 lineWidth: 2,
@@ -31,7 +28,7 @@ class Distribution extends React.Component<any, any>{
             active: {
                 style: {
                     shadowBlur: 4,
-                    stroke: '#000',
+                    stroke: '#fff',
                     fill: 'red',
                 },
             },
@@ -143,77 +140,95 @@ class Distribution extends React.Component<any, any>{
 
     render() {
         return (
-            <>
-                <div>
-                    {this.state.region_loaded
-                        ?
-                        <select
-                            defaultValue = {this.state.selectedRegion}
-                            value = {this.state.selectedRegion}
-                            onChange={this.onSelectRegion}>
-                            <option value={0} >Select Region</option>
-                            {this.state.regions.map((item:any)=><option value={item.id} key={item.id}>{item.name}</option>)}
-                        </select>
-                        : "getting info"}
-                </div>
-                <div>
-                    <select
-                        defaultValue = {this.state.selectedYear}
-                        value = {this.state.selectedYear}
-                        onChange={this.onSelectYear}
-                    >
-                        <option value={0} >Select Year</option>
-                        <option value={2015} >2015</option>
-                        <option value={2016} >2016</option>
-                        <option value={2017} >2017</option>
-                        <option value={2018} >2018</option>
-                        <option value={2019} >2019</option>
-                    </select>
-                </div>
+            <section id="distribution">
+                <div className={"chart-info"}>
+                    <div className={"chart-action"}>
+                        <div className={"select-section"}>
+                                {this.state.region_loaded
+                                    ?
+                                    <select
+                                        defaultValue = {this.state.selectedRegion}
+                                        value = {this.state.selectedRegion}
+                                        onChange={this.onSelectRegion}>
+                                        <option value={0} >Select Region</option>
+                                        {this.state.regions.map((item:any)=><option value={item.id} key={item.id}>{item.name}</option>)}
+                                    </select>
+                                    : "getting info"}
 
-                <div>
-                    {this.state.dataTypes
-                        ?
-                        <div >
-                            {this.state.dataTypes.map((item:any)=>
-                                    <label>
-                                <input
-                                    type="radio"
-                                    value={item.id}
-                                    checked={this.state.selectedType === `${item.id}`}
-                                    onChange={this.onSelectType}
 
-                                />
-                                {item.name}/{item.units}
-                            </label>
-
-                            )}
+                                <select
+                                    defaultValue = {this.state.selectedYear}
+                                    value = {this.state.selectedYear}
+                                    onChange={this.onSelectYear}
+                                >
+                                    <option value={0} >Select Year</option>
+                                    <option value={2015} >2015</option>
+                                    <option value={2016} >2016</option>
+                                    <option value={2017} >2017</option>
+                                    <option value={2018} >2018</option>
+                                    <option value={2019} >2019</option>
+                                </select>
                         </div>
-                        :"getting info"
-                    }
-                </div>
 
-                <div>
-                    <Button type="primary" onClick={this.onFinish}>
-                        Submit
-                    </Button>
-                    <Button htmlType="button" onClick={this.onReset}>
-                        Reset
-                    </Button>
-                </div>
-                <div>
-                    {this.state.chartData_loaded
-                        ?
+                        <div className={"radio"}>
+                            {this.state.dataTypes
+                                ?
+                                    this.state.dataTypes.map((item:any)=>
+                                        <label>
+                                            <input
+                                                type="radio"
+                                                value={item.id}
+                                                checked={this.state.selectedType === `${item.id}`}
+                                                onChange={this.onSelectType}
+
+                                            />
+                                            {item.name}
+                                        </label>
+                                    )
+
+                                :"getting info"
+                            }
+                        </div>
                         <div>
-                            <Line {...this.config} />
-                            <p>Область: {this.state.chartData.region.name}</p>
-                            {this.state.chartData.dataType.id===1
-                                ? <p>{this.state.chartData.dataType.name}/{this.state.chartData.dataType.units} в день</p>
-                                : <p>{this.state.chartData.dataType.name}/{this.state.chartData.dataType.units} для поглинання викидів</p>}
+                            <Button type="primary" className={"btn submit"} onClick={this.onFinish}>
+                                Submit
+                            </Button>
+                            <Button htmlType="button" className={"btn reset"} onClick={this.onReset}>
+                                Reset
+                            </Button>
                         </div>
-                        : "No data"}
+                    </div>
+
+                    <div className={"chart"}>
+                        {this.state.chartData_loaded
+                            ?
+                            <div>
+                                <Line {...this.config} />
+                                <p>Статистика: {this.state.chartData.region.name}</p>
+                                {this.state.chartData.dataType.id===1
+                                    ? <p>Викидів {this.state.chartData.dataType.name}/{this.state.chartData.dataType.units} в день</p>
+                                    : <p>Кількість {this.state.chartData.dataType.name}/{this.state.chartData.dataType.units} потрібна для поглинання викидів</p>}
+                            </div>
+                            : <div className={"chart-placeholder"}>No data selected</div>}
+                    </div>
                 </div>
-            </>
+                <div className={"info"}>
+                    <h1>Основне завдання</h1>
+                    <p>
+                        На «/distribution» можна обрати дані для запиту на сервер та кнопка підтверження. На
+                        сторінці повинна міститися форма з наступними можливостями:
+                        Select з вибором регіону. <br/><br/>
+                        Select з вибором року має буди статично заповнений с 2015 до 2019 роки.<br/><br/>
+                        Radio з вибором типу даних <br/><br/>
+                        Button очищення даних на формі (червоного кольору), після натискання якої всі обрані
+                        значення мають обнулитися.<br/><br/>
+                        Button (зеленого кольору) відправки запиту на end point<br/><br/>
+                        Після відправлення запиту на цій же сторінці відобразити дані, що приходять з сервера,  у
+                        вигляді графіка залежності carbon foot print або nature impact від дати (по горизонтальній осі
+                        розташовуються дати, а по вертикальній значення в обраних одиницях).
+                    </p>
+                </div>
+            </section>
         );
     }
 }
