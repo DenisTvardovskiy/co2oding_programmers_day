@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/DenisTvardovskiy/co2oding_programmers_day",
+  "homepage": "https://denistvardovskiy.github.io/co2oding_programmers_day/",
   "name": "co2oding_programmers_day",
   "version": "0.1.0",
   "private": true,
@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"git
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
