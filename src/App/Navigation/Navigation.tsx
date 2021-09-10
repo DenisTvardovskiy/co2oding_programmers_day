@@ -18,18 +18,18 @@ class Navigation extends React.Component<any, any>{
                     <nav>
                         <ul>
                             <li>
-                                <Link to="/">Home</Link>
+                                <Link to="co2oding_programmers_day/">Home</Link>
                             </li>
                             <li>
-                                <Link to="/distribution">Distribution</Link>
+                                <Link to="co2oding_programmers_day/distribution">Distribution</Link>
                             </li>
                         </ul>
                     </nav>
                     <Switch>
-                        <Route path="/distribution">
+                        <Route path="co2oding_programmers_day/distribution">
                             <Distribution/>
                         </Route>
-                        <Route path="/">
+                        <Route path="co2oding_programmers_day/">
                             <Home/>
                         </Route>
                     </Switch>
